@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    background-color: black;
 }
 
 .wrap {
@@ -12,6 +13,17 @@ body {
 
 .wrap > .container {
     padding: 70px 15px 20px;
+    background: url("../img/background.png") no-repeat top right;
+    min-height: 1100px;
+}
+
+.header{
+    min-height: 350px;
+    /*border: 1px solid green;*/
+}
+
+.logo{
+    margin-top: 15px;
 }
 
 .footer {

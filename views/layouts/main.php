@@ -28,18 +28,21 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
+//        'brandLabel' => 'My Company',
+//        'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Главная', 'url' => ['/site/index']],
+            ['label' => 'О нас', 'url' => ['/site/about']],
+            ['label' => 'Новости', 'url' => ['/site/news']],
+            ['label' => 'Проекты', 'url' => ['/site/projects']],
+            ['label' => 'Контакты', 'url' => ['/site/contact']],
+            ['label' => 'Фотогалерея', 'url' => ['/site/gallery']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -58,12 +61,15 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        <header class="header container-fluid hidden-sm hidden-xs">
+            <a href="#"><img src="../../img/logo.png"  class="logo" alt=""></a>
+        </header>
         <?= $content ?>
     </div>
+
 </div>
+
+
 
 <footer class="footer">
     <div class="container">
