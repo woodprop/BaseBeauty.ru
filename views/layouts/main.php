@@ -63,6 +63,14 @@ AppAsset::register($this);
     <div class="container">
         <header class="header container-fluid hidden-sm hidden-xs">
             <a href="#"><img src="../../img/logo.png"  class="logo" alt=""></a>
+
+            <div class="social">
+                <a href="#"><img src="../../img/home.png" alt=""></a>
+                <a href="#"><img src="../../img/mail.png" alt=""></a>
+                <a href="#"><img src="../../img/fb.png" alt=""></a>
+                <a href="#"><img src="../../img/vk.png" alt=""></a>
+                <a href="#"><img src="../../img/tw.png" alt=""></a>
+            </div>
         </header>
         <?= $content ?>
     </div>

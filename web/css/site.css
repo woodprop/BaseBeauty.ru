@@ -2,6 +2,34 @@ html,
 body {
     height: 100%;
     background-color: black;
+    color: #ffffff;
+}
+
+.btn-outline {
+    color: #ffffff;
+    background: none;
+    border-color: #ffffff;
+}
+
+.btn-outline:hover {
+    color: #5aafa2;
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+.bb-color{
+    color: #5aafa2;
+}
+
+.bb-color-bg{
+    background-color: #5aafa2;
 }
 
 .wrap {
@@ -18,12 +46,65 @@ body {
 }
 
 .header{
-    min-height: 350px;
-    /*border: 1px solid green;*/
+    min-height: 310px;
+    display: flex;
 }
 
 .logo{
     margin-top: 15px;
+}
+
+.social{
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+.social a{
+    margin-right: 15px;
+}
+
+.index-jumbotron{
+    /*border: 1px solid red;*/
+    height: 560px;
+    background: url("../img/index-jum-bg.png") no-repeat top right;
+}
+
+.jumbotron-heading{
+    font-size: 55px;
+    font-weight: 600;
+    margin-left: 85px;
+    margin-top: 65px;
+    margin-bottom: 0;
+}
+
+.jumbotron-small{
+    font-size: 35px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 25px;
+}
+
+.jumbotron-small:nth-child(3){
+    margin-left: 185px;
+}
+
+.jumbotron-small:nth-child(4){
+    font-size: 40px;
+    font-weight: 600;
+    margin-left: 135px;
+}
+
+.jumbotron-description{
+    margin-top: 50px;
+}
+
+.jumbotron-description h3{
+    font-size: 35px;
+}
+
+.jumbotron-description p{
+    font-size: 16px;
 }
 
 .footer {
