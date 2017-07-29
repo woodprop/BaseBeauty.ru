@@ -73,7 +73,6 @@ body {
 }
 
 .index-jumbotron{
-    /*border: 1px solid red;*/
     height: 560px;
     background: url("../img/index-jum-bg.png") no-repeat top right;
 }
@@ -140,6 +139,26 @@ body {
     font-family: "diner-obeseregular";
     line-height: 200px;
     margin-right: 20px;
+}
+
+.contact-content{
+    box-sizing: border-box;
+    height: 800px;
+    background: url("../img/contact-bg.png") no-repeat bottom right;
+}
+
+.contact-content h1{
+    margin-left: 35px;
+    margin-top: 70px;
+}
+
+.contact-data{
+    margin-left: 35px;
+}
+
+.contact-data a{
+    font-size: 20px;
+    color: #ffffff;
 }
 
 .not-set {

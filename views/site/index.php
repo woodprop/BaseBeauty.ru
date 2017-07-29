@@ -20,7 +20,7 @@ $this->title = 'Base Beauty – художественно-производст�
         </div>
     </div>
 
-    <div class="body-content">
+    <div>
 
         <div class="row bb-color-bg">
             <div class="col-lg-4">
