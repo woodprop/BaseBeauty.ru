@@ -75,9 +75,10 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 
-    <img src="../../img/cinema.png" alt="">
+    <div class="text-center">
+        <img src="../../img/cinema.png" alt="">
+    </div>
 </div>
-
 
 
 <footer class="footer">
