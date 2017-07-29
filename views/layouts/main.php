@@ -75,6 +75,7 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 
+    <img src="../../img/cinema.png" alt="">
 </div>
 
 
@@ -83,7 +84,6 @@ AppAsset::register($this);
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
 

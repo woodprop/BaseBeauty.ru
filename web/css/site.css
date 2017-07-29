@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'diner-obeseregular';
+    src: url('../fonts/Diner-Regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 html,
 body {
     height: 100%;
@@ -109,8 +117,7 @@ body {
 
 .footer {
     height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
+    background-color: #000000;
     padding-top: 20px;
 }
 
@@ -122,6 +129,17 @@ body {
 .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
+}
+
+.project-stages{
+    margin-top: 50px;
+}
+
+.big-number{
+    font-size: 200px;
+    font-family: "diner-obeseregular";
+    line-height: 200px;
+    margin-right: 20px;
 }
 
 .not-set {
