@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\News;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,7 +62,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $news = News::find()->limit('3')->orderBy('id DESC')->all();
+        return $this->render('index', ['news' => $news]);
     }
 
     /**

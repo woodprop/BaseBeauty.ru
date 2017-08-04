@@ -166,6 +166,12 @@ body {
     font-style: italic;
 }
 
+/* СБРОС ФОНА ДЛЯ ТАБЛИЦ */
+.table-striped > tbody > tr:nth-of-type(odd){
+    background: none;
+}
+
+
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
     position: relative;
