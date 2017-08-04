@@ -33,12 +33,19 @@ class NewsController extends Controller
      * Lists all News models.
      * @return mixed
      */
+
     public function actionIndex()
+    {
+        $news = News::find()->orderBy('id DESC')->all();
+        return $this->render('index', ['news' => $news]);
+    }
+
+    public function actionAdmin()
     {
         $searchModel = new NewsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('admin/index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -51,7 +58,7 @@ class NewsController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->render('admin/view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -68,7 +75,7 @@ class NewsController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->render('admin/create', [
                 'model' => $model,
             ]);
         }
@@ -87,7 +94,7 @@ class NewsController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->render('admin/update', [
                 'model' => $model,
             ]);
         }
@@ -103,7 +110,7 @@ class NewsController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['admin/index']);
     }
 
     /**

@@ -1,34 +1,19 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
-use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\NewsSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'News';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Новости';
+
+foreach ($news as $new):
 ?>
-<div class="news-index">
+<div class="row">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    <h1><?= Html::encode($new->title); ?></h1>
     <p>
-        <?= Html::a('Create News', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::encode($new->text); ?>
     </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+</div>
 
-            'id',
-            'title',
-            'text:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-<?php Pjax::end(); ?></div>
+<?php endforeach; ?>
