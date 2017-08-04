@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "news".
@@ -13,6 +14,8 @@ use Yii;
  */
 class News extends \yii\db\ActiveRecord
 {
+    public $imageFile;
+
     /**
      * @inheritdoc
      */
@@ -30,6 +33,7 @@ class News extends \yii\db\ActiveRecord
             [['title', 'text'], 'required'],
             [['text'], 'string'],
             [['title'], 'string', 'max' => 255],
+            [['image_json'], 'string', 'max' => 255],
         ];
     }
 

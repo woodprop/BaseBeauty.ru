@@ -9,6 +9,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use app\models\UploadForm;
+use yii\web\UploadedFile;
+
 /**
  * NewsController implements the CRUD actions for News model.
  */
@@ -71,8 +74,26 @@ class NewsController extends Controller
     public function actionCreate()
     {
         $model = new News();
+        $uploadModel = new UploadForm();
+        $uploadModel->imageFile = UploadedFile::getInstance($model, 'imageFile');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            if (!($uploadModel->upload())) {
+                throw new ServerErrorHttpException('Failed to upload Files');
+            }
+            $model->setAttributes([
+                'image_json' => 'test' //todo
+            ]);
+
+
+            if ($model->validate()) {
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                } else {
+                    throw new ServerErrorHttpException('Failed to save model ' . $model::className());
+                }
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('admin/create', [

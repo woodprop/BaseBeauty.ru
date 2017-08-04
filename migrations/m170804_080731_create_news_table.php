@@ -16,6 +16,7 @@ class m170804_080731_create_news_table extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string(255)->notNull(),
             'text' => $this->text()->notNull(),
+            'image_json' => $this->string(255),
         ]);
     }
 
