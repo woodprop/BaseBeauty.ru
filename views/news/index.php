@@ -6,6 +6,14 @@ use yii\helpers\Html;
 
 $this->title = 'Новости';
 
+if (! Yii::$app->user->isGuest):
+    ?>
+    <p>
+        <?= Html::a('Управление', ['admin'], ['class' => 'btn btn-danger']) ?>
+    </p>
+
+<?php endif;
+
 foreach ($news as $new):
 ?>
 <div class="row">

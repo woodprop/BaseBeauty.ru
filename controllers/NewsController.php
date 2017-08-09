@@ -32,6 +32,16 @@ class NewsController extends Controller
         ];
     }
 
+
+    public function checkUser(){
+        if (Yii::$app->user->isGuest){
+            return $this->goBack();
+        }
+        return true;
+
+    }
+
+
     /**
      * Lists all News models.
      * @return mixed
@@ -45,10 +55,12 @@ class NewsController extends Controller
 
     public function actionAdmin()
     {
+        $this->checkUser();
+
         $searchModel = new NewsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('admin/index', [
+        return $this->render('admin', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -61,7 +73,7 @@ class NewsController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('admin/view', [
+        return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -73,6 +85,8 @@ class NewsController extends Controller
      */
     public function actionCreate()
     {
+        $this->checkUser();
+
         $model = new News();
         $uploadModel = new UploadForm();
         $uploadModel->imageFile = UploadedFile::getInstance($model, 'imageFile');
@@ -96,7 +110,7 @@ class NewsController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('admin/create', [
+            return $this->render('create', [
                 'model' => $model,
             ]);
         }
@@ -110,12 +124,14 @@ class NewsController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->checkUser();
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('admin/update', [
+            return $this->render('update', [
                 'model' => $model,
             ]);
         }
@@ -129,9 +145,11 @@ class NewsController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->checkUser();
+
         $this->findModel($id)->delete();
 
-        return $this->redirect(['admin/index']);
+        return $this->redirect(['admin']);
     }
 
     /**
