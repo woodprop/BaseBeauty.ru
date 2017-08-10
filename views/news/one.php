@@ -11,7 +11,7 @@ use yii\helpers\Html;
 ?>
 <div class="row">
     <article class="col-md-8">
-        <h2><?= $model->title; ?></h2>
+        <h2 class="bb-color"><?= $model->title; ?></h2>
         <p><?= $model->text; ?></p>
     </article>
     <aside class="col-md-4">
@@ -20,7 +20,7 @@ use yii\helpers\Html;
             foreach ($imageList as $image):
                 $imgPath = '/img/uploads/news/' . $model->id . '/' . $image; //ToDo причесать
         ?>
-                <a href="#" class="thumbnail">
+                <a href="#" class="thumbnail col-md-6">
                     <img src="<?= $imgPath; ?>">
                 </a>
 

@@ -24,7 +24,14 @@ body {
     background-color: #ffffff;
 }
 
+.thumbnail{
+    background: none;
+}
 
+.thumbnail img{
+    width: 150px;
+    height: 150px;
+}
 
 
 

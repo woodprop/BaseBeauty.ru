@@ -71,6 +71,8 @@ class NewsController extends Controller
      * @param integer $id
      * @return mixed
      */
+
+    // ToDO AdminView
 //    public function actionView($id)
 //    {
 //        return $this->render('view', [
@@ -83,7 +85,7 @@ class NewsController extends Controller
     {
         return $this->render('one', [
             'model' => $this->findModel($id),
-            'imageList' => $this->getImageList(),
+            'imageList' => $this->getImageList($id),
         ]);
     }
 
@@ -162,10 +164,10 @@ class NewsController extends Controller
         return $this->redirect(['admin']);
     }
 
-    public function getImageList($id = 1){
+    public function getImageList($id){
         $newsImagePath = 'img/uploads/news/' . $id;
         $ignore = array('.', '..', '.DS_Store'); //ToDO Нормальная фильтрация
-        $imageList = array_diff(scandir($newsImagePath), $ignore);
+        $imageList = array_diff(scandir($newsImagePath), $ignore); //Todo Наличие папки
         return $imageList;
     }
 

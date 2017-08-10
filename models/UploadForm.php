@@ -10,7 +10,7 @@ class UploadForm extends Model
      * @var UploadedFile
      */
     public $imageFile;
-    public $imageJson;
+    public $imageJson; //ToDo Надо ли Json???
 
     public function rules()
     {
@@ -19,9 +19,9 @@ class UploadForm extends Model
         ];
     }
 
-    public function upload()
+    public function upload() //ToDo
     {
-        if ($this->validate()) { //ToDO Подтяжка ID
+        if ($this->validate()) { //ToDO Подтяжка ID и Создание папки
             $this->imageFile->saveAs('img/uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
             return true;
         }
