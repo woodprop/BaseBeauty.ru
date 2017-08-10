@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = 'Base Beauty – художественно-производственные мастерские по изготовлению студийных и татральных декораций';
@@ -28,7 +29,7 @@ $this->title = 'Base Beauty – художественно-производст�
 
                     <p class="text-justify"><?= \yii\helpers\StringHelper::truncate($new->text,300,'...'); ?></p>
 
-                    <p><a class="btn btn-outline btn-block" href="#">Подробнее</a></p>
+                    <p><a class="btn btn-outline btn-block" href="<?= Url::to(['/news']) . '/' . $new->id ?>">Подробнее</a></p>
                 </div>
             <?php endforeach; ?>
         </div>

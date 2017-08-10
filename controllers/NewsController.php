@@ -71,12 +71,22 @@ class NewsController extends Controller
      * @param integer $id
      * @return mixed
      */
+//    public function actionView($id)
+//    {
+//        return $this->render('view', [
+//            'model' => $this->findModel($id),
+//        ]);
+//    }
+
+
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->render('one', [
             'model' => $this->findModel($id),
+            'imageList' => $this->getImageList(),
         ]);
     }
+
 
     /**
      * Creates a new News model.
@@ -100,7 +110,7 @@ class NewsController extends Controller
             ]);
 
 
-            if ($model->validate()) {
+            if ($model->validate()) { //ToDO Последовательность сохранения
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 } else {
@@ -151,6 +161,14 @@ class NewsController extends Controller
 
         return $this->redirect(['admin']);
     }
+
+    public function getImageList($id = 1){
+        $newsImagePath = 'img/uploads/news/' . $id;
+        $ignore = array('.', '..', '.DS_Store'); //ToDO Нормальная фильтрация
+        $imageList = array_diff(scandir($newsImagePath), $ignore);
+        return $imageList;
+    }
+
 
     /**
      * Finds the News model based on its primary key value.
