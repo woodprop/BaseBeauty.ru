@@ -102,18 +102,22 @@ class NewsController extends Controller
         $model = new News();
         $uploadModel = new UploadForm();
         $uploadModel->imageFile = UploadedFile::getInstance($model, 'imageFile');
+        $uploadModel->section = 'news/';
 
         if ($model->load(Yii::$app->request->post())) {
-            if (!($uploadModel->upload())) {
-                throw new ServerErrorHttpException('Failed to upload Files');
-            }
+
             $model->setAttributes([
                 'image_json' => 'test' //todo
             ]);
 
 
-            if ($model->validate()) { //ToDO Последовательность сохранения
+            if ($model->validate()) {
                 if ($model->save()) {
+                    $uploadModel->modelId = $model->id;
+                    if (!($uploadModel->upload())) {
+                        throw new ServerErrorHttpException('Failed to upload Files');
+                    }
+
                     return $this->redirect(['view', 'id' => $model->id]);
                 } else {
                     throw new ServerErrorHttpException('Failed to save model ' . $model::className());
@@ -155,7 +159,7 @@ class NewsController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($id) //ToDo Удаление папки с картинками
     {
         $this->checkUser();
 
@@ -167,8 +171,11 @@ class NewsController extends Controller
     public function getImageList($id){
         $newsImagePath = 'img/uploads/news/' . $id;
         $ignore = array('.', '..', '.DS_Store'); //ToDO Нормальная фильтрация
-        $imageList = array_diff(scandir($newsImagePath), $ignore); //Todo Наличие папки
-        return $imageList;
+        if (is_dir($newsImagePath)) {
+            $imageList = array_diff(scandir($newsImagePath), $ignore);
+            return $imageList;
+        }
+        return false;
     }
 
 

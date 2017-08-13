@@ -17,6 +17,7 @@ use yii\helpers\Html;
     <aside class="col-md-4">
         <!-- TODO PICTURES -->
         <?php
+            if ($imageList):
             foreach ($imageList as $image):
                 $imgPath = '/img/uploads/news/' . $model->id . '/' . $image; //ToDo причесать
         ?>
@@ -25,7 +26,9 @@ use yii\helpers\Html;
                 </a>
 
 
-        <?php endforeach; ?>
+        <?php endforeach;
+        endif;
+        ?>
 
     </aside>
 
