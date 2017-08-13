@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use himiklab\colorbox\Colorbox;
 /**
  * Вывод одной новости
 
@@ -9,6 +10,20 @@ use yii\helpers\Html;
 
 
 ?>
+
+<?= Colorbox::widget([
+    'targets' => [
+        '.colorbox' => [
+            'maxWidth' => 800,
+            'maxHeight' => 600,
+            'rel' => 'image-in-group',
+            'current' => 'Изображение {current} из {total}',
+        ],
+    ],
+    'coreStyle' => 1
+]) ?>
+
+
 <div class="row">
     <article class="col-md-8">
         <h2 class="bb-color"><?= $model->title; ?></h2>
@@ -21,7 +36,7 @@ use yii\helpers\Html;
             foreach ($imageList as $image):
                 $imgPath = '/img/uploads/news/' . $model->id . '/' . $image; //ToDo причесать
         ?>
-                <a href="#" class="thumbnail col-md-6">
+                <a href="<?= $imgPath; ?>" class="thumbnail col-md-6 colorbox image-in-group" title="<?= $model->title; ?>">
                     <img src="<?= $imgPath; ?>">
                 </a>
 
