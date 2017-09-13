@@ -67,7 +67,7 @@ AppAsset::register($this);
             <div class="social">
                 <a href="/"><img src="../../img/home.png" alt=""></a>
                 <a href="mailto:mail@basebeauty.ru"><img src="../../img/mail.png" alt=""></a>
-                <a href="#"><img src="../../img/fb.png" alt=""></a>
+                <a href="http://www.facebook.com/BaseBeautyMoscow/"><img src="../../img/fb.png" alt=""></a>
                 <a href="#"><img src="../../img/vk.png" alt=""></a>
                 <a href="#"><img src="../../img/tw.png" alt=""></a>
             </div>
