@@ -40,9 +40,9 @@ AppAsset::register($this);
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'О нас', 'url' => ['/site/about']],
             ['label' => 'Новости', 'url' => ['/news']],
-            ['label' => 'Проекты', 'url' => ['/site/projects']],
+//            ['label' => 'Проекты', 'url' => ['/site/projects']],
             ['label' => 'Контакты', 'url' => ['/site/contact']],
-            ['label' => 'Фотогалерея', 'url' => ['/site/gallery']],
+//            ['label' => 'Фотогалерея', 'url' => ['/site/gallery']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
